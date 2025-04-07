@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
+    "dev": "./node_modules/.bin/vite",
+    "build": "./node_modules/.bin/vite build",
     "lint": "eslint .",
-    "preview": "npx vite preview",
-    "vercel-build": "npm install && npx vite build"
+    "preview": "./node_modules/.bin/vite preview",
+    "vercel-build": "npm install && ./node_modules/.bin/vite build"
   },
   "dependencies": {
     "react": "^19.0.0",
