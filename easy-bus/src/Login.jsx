@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Login({ setName }) {
     const [name, setNameLocal] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (name.trim()) {
+        if (name.trim() && password.trim()) {
             setName(name);
             navigate('/home');
         }
@@ -22,14 +23,23 @@ export default function Login({ setName }) {
                 </div>
                 <form onSubmit={handleSubmit} className="login-form">
                     <div className="form-group">
-                        <label htmlFor="name" className="form-label">Username </label>
+                        <label htmlFor="name" className="form-label">Log In </label>
                         <input
                             type="text"
                             id="name"
                             value={name}
                             onChange={(e) => setNameLocal(e.target.value)}
                             className="form-input"
-                            placeholder="First and Last Name"
+                            placeholder="username"
+                            required
+                        />
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="form-input"
+                            placeholder="password"
                             required
                         />
                     </div>

@@ -1,7 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar({ name }) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        navigate('/');
+    };
 
     return (
         <nav className="navbar">
@@ -12,13 +17,13 @@ export default function Navbar({ name }) {
                         className="user-button"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     >
-                        {name}
+                        Matteo Buoncristiano
                     </button>
                     {isDropdownOpen && (
                         <div className="dropdown-menu">
                             <button className="dropdown-item">Profile</button>
                             <button className="dropdown-item">Settings</button>
-                            <button className="dropdown-item">Logout</button>
+                            <button type="button" className="dropdown-item" onClick={handleLogout} >Logout</button>
                         </div>
                     )}
                 </div>
